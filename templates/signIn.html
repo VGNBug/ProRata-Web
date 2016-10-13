@@ -1,0 +1,22 @@
+<ion-view title="Sign in" id="page9">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <h1 id="signIn-heading1" style="color:#000000;text-align:center;">ProRata</h1>
+        <div class="list card">
+            <div class="item item-body">
+                <form class="list">
+                    <label class="item item-input" name="email">
+                        <span class="input-label">Email</span>
+                        <input type="email" placeholder="Email address" ng-model="prorataUser.email">
+                    </label>
+                    <label class="item item-input" name="password">
+                        <span class="input-label">Password</span>
+					  <input type="password" placeholder="Password" ng-model="prorataUser.password">
+                    </label>
+                    <div class="spacer" style="height: 100px;"></div>
+                    <button id="signIn-button9" class="button button-positive  button-block" ng-click="signIn()">Sign in</button>
+                    <button id="signIn-button10" class="button button-positive  button-block button-clear">or create an account</button>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
