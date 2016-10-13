@@ -1,11 +1,8 @@
-var baseUrl = 'http://prorata-api-staging.herokuapp.com/';
+function prorataUserService($http, $rootScope) {
 
-function prorataUserService($http) {
   this.get = function(emailHash, passwordHash) {
-	  alert(baseUrl + 'prorataUser/' + emailHash + '+-++' +
-      '+' +
-      '2+/' + passwordHash);
-    return $http.get(baseUrl + 'prorataUser/' + emailHash + '/' + passwordHash);
+	  console.log($rootScope.serverPath + 'prorataUser/' + emailHash + '/' + passwordHash);
+    return $http.get($rootScope.serverPath + 'prorataUser/' + emailHash + '/' + passwordHash);
   };
 };
 

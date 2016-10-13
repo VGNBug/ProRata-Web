@@ -7,8 +7,17 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $http, $rootScope) {
+  // getServerPath(function() {
+  //   $http.get('config/configuration.properties').then(function (response) {
+  //   // $rootScope.serverPath = response.data.serverPath;
+  //   console.log('serverPath is ', response.data.serverPath);
+  // });}
+
   $ionicPlatform.ready(function() {
+
+    getServerPath($http, $rootScope);
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -20,3 +29,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
   });
 })
+
+function getServerPath($http, $rootScope) {
+  $http.get('config/configuration.properties').then(function (response) {
+    $rootScope.serverPath = response.data.serverPath;
+    console.log('serverPath is ', response.data.serverPath);
+  });
+}
