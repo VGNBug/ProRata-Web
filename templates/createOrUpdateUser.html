@@ -4,25 +4,25 @@
         <div class="list card">
             <div class="item item-body">
                 <form class="list">
+                    <label class="item item-input" name="firstName">
+                        <span class="input-label">First name</span>
+                        <input type="text" placeholder="First name" ng-model="prorataUser.firstName">
+                    </label>
                     <label class="item item-input" name="lastName">
                         <span class="input-label">Last name</span>
-                        <input type="text" placeholder="Last name">
+                        <input type="text" placeholder="Last name" ng-model="prorataUser.lastName">
                     </label>
                     <label class="item item-input" name="email">
                         <span class="input-label">Email address</span>
-                        <input type="email" placeholder="Email address">
+                        <input type="email" placeholder="Email address" ng-model="prorataUser.email">
                     </label>
                     <label class="item item-input" name="password">
                         <span class="input-label">Password</span>
-                        <input type="password" placeholder="Password">
-                    </label>
-                    <label class="item item-input" name="firstName">
-                        <span class="input-label">First name</span>
-                        <input type="text" placeholder="First name">
+                        <input type="password" placeholder="Password" ng-model="prorataUser.password">
                     </label>
                     <div class="spacer" style="height: 100px;"></div>
                 </form>
-                <button id="createAccount-button12" class="button button-positive  button-block">Create account</button>
+                <button id="createAccount-button12" class="button button-positive button-block" ng-click="createOrUpdateUser()">Create account</button>
             </div>
         </div>
     </ion-content>
