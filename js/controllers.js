@@ -1,7 +1,9 @@
 angular.module('app.controllers', [])
   
 .controller('homeCtrl', function($scope, $state, $stateParams) {
+	console.log($stateParams.prorataUser);
 
+	$scope.prorataUser = $stateParams.prorataUser;
 })
    
 .controller('cartCtrl', function($scope) {
@@ -30,10 +32,10 @@ angular.module('app.controllers', [])
 		
 		prorataUserService.get(emailHash, passwordHash)
 		.then(function(response) {
-			alert(response.data.message);
-			$state.go('home'/*, {referer: $state.current.name}*/);
+			$state.go('home', {'prorataUser': response.data});
 		}, function(error) {
-			alert('HTTP GET request failed: ' + error.status + ': ' + error.statusText);
+			console.log('HTTP GET request failed. Error code: ' + error.status + ', status: ' + error.statusText + ', reason: ' + error.data.message);
+			alert(error.data.message);
 		});
 	};
 	

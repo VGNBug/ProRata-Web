@@ -1,8 +1,9 @@
 function prorataUserService($http, $rootScope) {
 
   this.get = function(emailHash, passwordHash) {
-	  console.log($rootScope.serverPath + 'prorataUser/' + emailHash + '/' + passwordHash);
-    return $http.get($rootScope.serverPath + 'prorataUser/' + emailHash + '/' + passwordHash);
+  	var url = $rootScope.serverPath + 'prorataUser/' + emailHash + '/' + passwordHash
+  	console.log('Making HTTP GET request to ' + url);
+    return $http.get(url);
   };
 };
 
