@@ -59,10 +59,10 @@ angular.module('app.routes', [])
     params: { 'prorataUser': null }
   })
 
-  .state('createAccount', {
-    url: '/createAccount',
-    templateUrl: 'templates/createAccount.html',
-    controller: 'createAccountCtrl',
+  .state('createOrUpdateUser', {
+    url: '/createOrUpdateUser',
+    templateUrl: 'templates/createOrUpdateUser.html',
+    controller: 'createOrUpdateUserCtrl',
 	params: { 'prorataUser': null } 
 })
 

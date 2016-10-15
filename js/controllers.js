@@ -38,10 +38,15 @@ angular.module('app.controllers', [])
 			alert(error.data.message);
 		});
 	};
+
+	$scope.createUser = function() {
+		$state.go('createOrUpdateUser', {'prorataUser': null}); // TODO pass email in a prorataUser
+	}
 	
 })
    
-.controller('createAccountCtrl', function($scope) {
-
+.controller('createOrUpdateUserCtrl', function($scope, $stateParams, prorataUserService) {
+	console.log($stateParams.prorataUser);
+	$scope.prorataUser = $stateParams.prorataUser;
 })
  
