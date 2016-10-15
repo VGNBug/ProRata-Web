@@ -14,6 +14,12 @@ function prorataUserService($http, $rootScope) {
   	console.log('Making HTTP POST request to ' + url);
   	return $http.post(url, prorataUser);
   }
+
+this.put = function(prorataUser, emailHash, passwordHash) {
+    var url = $rootScope.serverPath + '/prorataUser/' + emailHash + '/' + passwordHash;
+    console.log('Making HTTP PUT request to ' + url);
+    return $http.put(url, prorataUser);
+  }
 };
 
 angular.module('app.services', [])

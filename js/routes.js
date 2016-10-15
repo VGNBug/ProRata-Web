@@ -63,7 +63,9 @@ angular.module('app.routes', [])
     url: '/createOrUpdateUser',
     templateUrl: 'templates/createOrUpdateUser.html',
     controller: 'createOrUpdateUserCtrl',
-	params: { 'prorataUser': null } 
+	params: { 'prorataUser': null,
+            'newUser': false
+   } 
 })
 
 $urlRouterProvider.otherwise('/signIn')
