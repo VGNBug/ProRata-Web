@@ -40,13 +40,25 @@ angular.module('app.controllers', [])
 	};
 
 	$scope.createUser = function() {
-		$state.go('createOrUpdateUser', {'prorataUser': null}); // TODO pass email in a prorataUser
+		$scope.prorataUser.password = "";
+		$state.go('createOrUpdateUser', {'prorataUser': $scope.prorataUser}); // TODO pass email in a prorataUser
 	}
 	
 })
    
-.controller('createOrUpdateUserCtrl', function($scope, $stateParams, prorataUserService) {
+.controller('createOrUpdateUserCtrl', function($scope, $stateParams, $state, prorataUserService) {
 	console.log($stateParams.prorataUser);
 	$scope.prorataUser = $stateParams.prorataUser;
+
+	$scope.createUser = function() {
+		console.log($scope.prorataUser);
+		prorataUserService.post($scope.prorataUser)
+		.then(function(response) {
+			$state.go('home', {'prorataUser': response.data});
+		}, function(error) {
+			console.log('HTTP POST request failed. Error code: ' + error.status + ', status: ' + error.statusText + ', reason: ' + error.data.message);
+			alert(error.data.message);
+		});
+	}
 })
  
